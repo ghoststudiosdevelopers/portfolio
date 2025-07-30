@@ -1,24 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<style>
-  /* Hide default cursor globally */
-  * {
-    cursor: none !important;
-  }
-
-  #emojiCursor {
-    position: fixed;
-    top: 0;
-    left: 0;
-    font-size: 28px;
-    pointer-events: none;
-    z-index: 9999;
-    transform: translate(-50%, -50%);
-    transition: transform 0.08s ease;
-  }
-</style>
-
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
@@ -28,132 +9,135 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
   <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-tilt/1.7.2/vanilla-tilt.min.js"></script>
+  <style>
+    * { cursor: none !important; }
+  </style>
 </head>
-<body  class="night">
-<div id="emojiCursor">👻</div>
+<body class="night">
+  <!-- Custom Cursor -->
+  <img src="assets/ghost.png" id="ghostCursor" alt="ghost cursor">
 
   <!-- Toggle Controls -->
   <div class="toggle-bar">
     <button id="soundToggle">🔇</button>
   </div>
 
-  <!-- Video Background -->
-  <video autoplay muted loop playsinline id="bg-video">
-  <source src="assets/background1.mp4" type="video/mp4" />
-  Your browser does not support HTML5 video.
-</video>
+  <!-- Background Video -->
+  <video id="bg-video" autoplay muted loop playsinline>
+    <source src="assets/background.mp4" type="video/mp4" />
+  </video>
 
+  <!-- Navbar -->
+  <nav class="navbar">
+    <div class="logo">
+      <img src="assets/logo.png" alt="Ghost Logo" />
+      <span>Ghost Portfolio</span>
+    </div>
+    <div class="menu-toggle" id="menu-toggle">☰</div>
+    <ul class="nav-links" id="nav-links">
+      <li><a href="#hero">Home</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#tech">Tech Stack</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
 
-<!-- 🔗 Navigation Bar -->
-<nav class="navbar">
-  <div class="logo">👻 Ghost Portfolio</div>
-  <div class="menu-toggle" id="menu-toggle">&#9776;</div>
-  <ul class="nav-links" id="nav-links">
-    <li><a href="#hero">Home</a></li>
-    <li><a href="#about">About</a></li>
-    <li><a href="#tech">Tech Stack</a></li>
-    <li><a href="#projects">Projects</a></li>
-    <li><a href="#contact">Contact</a></li>
-  </ul>
-</nav>
-
-
-  <!-- Hero Section -->
-  <section class="hero">
+  <!-- Hero -->
+  <section id="hero" class="hero">
     <div class="content">
-      <h1>👻 GHOST STUDIOS 🏴‍☠️</h1>
+      <h1>GHOST STUDIOS</h1>
       <p>We Make Imagination to Real</p>
       <a href="#about" class="cta">Explore</a>
     </div>
     <div id="ghostAnim" class="ghost-lottie"></div>
   </section>
 
+  <!-- About -->
   <section id="about" class="section about">
-  <div class="container">
-    <h2>🦴 About Ghost Studios 🏝️</h2>
-    <p>
-      At Ghost Studios, we blend eerie aesthetics and creative freedom to craft spine-tingling, visually immersive games. Whether you're lost in a haunted island or battling pixelated pirates, our mission is simple: 
-      <strong>"Make Imagination to Real."</strong>
-    </p>
-  </div>
-</section>
-<section id="projects" class="section projects">
-  <h2>🧩 Featured Projects</h2>
-  <div class="project-grid">
-    <div class="project-card" onclick="window.open('https://yourportfolio.com')">
-      <h3>👻 Main Portfolio</h3>
-      <p>Ghost-themed 3D portfolio with animated background & toggle modes.</p>
+    <div class="container">
+      <h2>🦴 About Ghost Studios 🏝️</h2>
+      <p>
+        At Ghost Studios, we blend eerie aesthetics and creative freedom to craft spine-tingling, immersive games. Whether you're lost in a haunted island or battling pixelated pirates, our mission is:
+        <strong>"Make Imagination to Real."</strong>
+      </p>
     </div>
-    <div class="project-card" onclick="window.open('https://ghoststudioss.itch.io/ghostseas')">
-      <h3>🏴‍☠️ Ghost Seas</h3>
-      <p>Pirate-themed 2.5D game with spooky sound and visuals.</p>
-    </div>
-    <div class="project-card" onclick="window.open('https://ghoststudioss.itch.io/shooting2d')">
-      <h3>🎯 Ghost Strike 2D</h3>
-      <p>Classic 2D shooter with custom UI and sound FX.</p>
-    </div>
-    <div class="project-card" onclick="window.open('https://yourjournalsite.com')">
-      <h3>📓 Studio Journal</h3>
-      <p>Personal dev log + project breakdown in a scroll-based layout.</p>
-    </div>
-  </div>
-</section>
+  </section>
 
-<section id="tech" class="section tech">
-  <h2>🛠️ Tech & Tools</h2>
-  <div class="tech-grid">
-    <div class="tech-item">
-      <span class="tech-icon">⚙️</span>
-      <h3>Unity</h3>
+  <!-- Projects -->
+  <section id="projects" class="section projects">
+    <h2>🧩 Featured Projects</h2>
+    <div class="project-grid">
+      <div class="project-card" onclick="window.open('https://yourportfolio.com')">
+        <h3>👻 Main Portfolio</h3>
+        <p>Ghost-themed 3D portfolio with animated background & toggle modes.</p>
+      </div>
+      <div class="project-card" onclick="window.open('https://ghoststudioss.itch.io/ghostseas')">
+        <h3>🏴‍☠️ Ghost Seas</h3>
+        <p>Pirate-themed 2.5D game with spooky sound and visuals.</p>
+      </div>
+      <div class="project-card" onclick="window.open('https://ghoststudioss.itch.io/shooting2d')">
+        <h3>🎯 Ghost Strike 2D</h3>
+        <p>Classic 2D shooter with custom UI and sound FX.</p>
+      </div>
+      <div class="project-card" onclick="window.open('https://yourjournalsite.com')">
+        <h3>📓 Studio Journal</h3>
+        <p>Personal dev log + project breakdown in a scroll-based layout.</p>
+      </div>
     </div>
-    <div class="tech-item">
-      <span class="tech-icon">🌐</span>
-      <h3>HTML & CSS</h3>
-    </div>
-    <div class="tech-item">
-      <span class="tech-icon">🎮</span>
-      <h3>C# / JavaScript</h3>
-    </div>
-    <div class="tech-item">
-      <span class="tech-icon">🧠</span>
-      <h3>AI Tools (Runway, Sora)</h3>
-    </div>
-    <div class="tech-item">
-      <span class="tech-icon">🔧</span>
-      <h3>Photoshop / Figma</h3>
-    </div>
-  </div>
-</section>
+  </section>
 
-<section id="contact" class="section contact-section">
-  <h2>Contact</h2>
-  <p>Let’s connect on your favorite platform 👻</p>
+  <!-- Tech -->
+  <section id="tech" class="section tech">
+    <h2>🛠️ Tech & Tools</h2>
+    <div class="tech-grid">
+      <div class="tech-item"><span class="tech-icon">⚙️</span><h3>Unity</h3></div>
+      <div class="tech-item"><span class="tech-icon">🌐</span><h3>HTML & CSS</h3></div>
+      <div class="tech-item"><span class="tech-icon">🎮</span><h3>C# / JavaScript</h3></div>
+      <div class="tech-item"><span class="tech-icon">🧠</span><h3>AI Tools</h3></div>
+      <div class="tech-item"><span class="tech-icon">⚡</span><h3>Three.js</h3></div>
+      <div class="tech-item"><span class="tech-icon">🔧</span><h3>Photoshop / Figma</h3></div>
+    </div>
+  </section>
 
-  <div class="contact-buttons">
-    <a href="ghoststudiosdeveloper@gmail.com" target="_blank" class="contact-btn email">
-      <img src="https://img.icons8.com/ios-filled/50/ffffff/new-post.png" alt="Email Icon" />
-      <span>Email</span>
-    </a>
-    <a href="https://wa.me/9896900679" target="_blank" class="contact-btn whatsapp">
-      <img src="https://img.icons8.com/ios-filled/50/ffffff/whatsapp.png" alt="WhatsApp Icon" />
-      <span>WhatsApp</span>
-    </a>
-    <a href="https://instagram.com/
-ghoststudio_dev" target="_blank" class="contact-btn instagram">
-      <img src="https://img.icons8.com/ios-filled/50/ffffff/instagram-new.png" alt="Instagram Icon" />
-      <span>Instagram</span>
-    </a>
-  </div>
-</section>
-<script>
-  const emojiCursor = document.getElementById("emojiCursor");
+  <!-- Contact -->
+  <section id="contact" class="section contact-section">
+    <h2>Contact</h2>
+    <p>Let’s connect on your favorite platform 👻</p>
+    <div class="contact-buttons">
+      <a href="mailto:ghoststudiosdeveloper@gmail.com" class="contact-btn email">
+        <img src="https://img.icons8.com/ios-filled/50/ffffff/new-post.png" alt="Email" /><span>Email</span>
+      </a>
+      <a href="https://wa.me/9896900679" class="contact-btn whatsapp">
+        <img src="https://img.icons8.com/ios-filled/50/ffffff/whatsapp.png" alt="WhatsApp" /><span>WhatsApp</span>
+      </a>
+      <a href="https://instagram.com/ghoststudio_dev" class="contact-btn instagram">
+        <img src="https://img.icons8.com/ios-filled/50/ffffff/instagram-new.png" alt="Instagram" /><span>Instagram</span>
+      </a>
+    </div>
+  </section>
 
-  document.addEventListener("mousemove", (e) => {
-    emojiCursor.style.left = e.clientX + "px";
-    emojiCursor.style.top = e.clientY + "px";
-  });
-</script>
+  <script>
+    // Mobile Navbar Toggle
+    const toggle = document.getElementById('menu-toggle');
+    const navLinks = document.getElementById('nav-links');
+    toggle.addEventListener('click', () => {
+      navLinks.classList.toggle('show');
+      toggle.textContent = navLinks.classList.contains('show') ? '✖' : '☰';
+    });
+    document.querySelectorAll('.nav-links a').forEach(link => {
+      link.addEventListener('click', () => {
+        navLinks.classList.remove('show');
+        toggle.textContent = '☰';
+      });
+    });
 
-<script src="script.js"></script>
+    // Ghost Cursor Follow
+    const ghostCursor = document.getElementById("ghostCursor");
+    document.addEventListener("mousemove", (e) => {
+      ghostCursor.style.transform = `translate(${e.clientX}px, ${e.clientY}px)`;
+    });
+  </script>
+  <script src="script.js"></script>
 </body>
 </html>

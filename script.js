@@ -64,46 +64,17 @@ VanillaTilt.init(document.querySelectorAll(".project-card"), {
   "max-glare": 0.3
 });
 
-document.getElementById("contactForm").addEventListener("submit", function (e) {
-  e.preventDefault();
-
-  const form = this;
-
-  const submitBtn = document.getElementById("submitBtn");
-  const btnText = document.getElementById("btnText");
-  const btnSpinner = document.getElementById("btnSpinner");
-  const statusMessage = document.getElementById("statusMessage");
-
-  // Show spinner
-  btnText.textContent = "Sending";
-  btnSpinner.style.display = "inline-block";
-  statusMessage.textContent = "";
-
-  const name = form.name.value;
-  const email = form.email.value;
-  const message = form.message.value;
-
-  fetch("https://script.google.com/macros/s/AKfycbzzIY9TFG22_p_06SER0wrOnXCD8taEh9k7ZwtniVilWMdUGXvTvCnY9qC4kNMeU2zr/exec", {
-    method: "POST",
-    body: JSON.stringify({ name, email, message }),
-    headers: { "Content-Type": "application/json" },
-  })
-    .then((res) => res.json())
-    .then((data) => {
-      btnText.textContent = "Sent ✅";
-      btnSpinner.style.display = "none";
-      statusMessage.textContent = "Thanks! We'll be in touch soon.";
-      form.reset();
-    })
-    .catch((err) => {
-      btnText.textContent = "Send";
-      btnSpinner.style.display = "none";
-      statusMessage.textContent = "❌ Something went wrong. Try again!";
-      console.error(err);
-    });
-});
 
 // ☰ Mobile Menu
-document.getElementById('menu-toggle').addEventListener('click', () => {
-  document.getElementById('nav-links').classList.toggle('show');
+const toggle = document.getElementById('menu-toggle');
+  const navLinks = document.getElementById('nav-links');
+
+  toggle.addEventListener('click', () => {
+    navLinks.classList.toggle('show');
+  });
+
+document.querySelectorAll('.nav-links a').forEach(link => {
+  link.addEventListener('click', () => {
+    navLinks.classList.remove('show');
+  });
 });
