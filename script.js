@@ -43,12 +43,6 @@ lottie.loadAnimation({
   path: "https://lottie.host/f9bfbf0e-3918-49c7-b2c7-54b5245f0e17/nmQmjPo3ep.json"
 });
 
-// Custom Cursor
-const cursor = document.getElementById("customCursor");
-document.addEventListener("mousemove", (e) => {
-  cursor.style.top = e.clientY + "px";
-  cursor.style.left = e.clientX + "px";
-});
 // Animate all .section on scroll
 document.querySelectorAll(".section").forEach((section) => {
   gsap.from(section, {
@@ -109,3 +103,7 @@ document.getElementById("contactForm").addEventListener("submit", function (e) {
     });
 });
 
+// ☰ Mobile Menu
+document.getElementById('menu-toggle').addEventListener('click', () => {
+  document.getElementById('nav-links').classList.toggle('show');
+});

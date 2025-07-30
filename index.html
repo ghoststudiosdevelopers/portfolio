@@ -1,5 +1,24 @@
 <!DOCTYPE html>
 <html lang="en">
+
+<style>
+  /* Hide default cursor globally */
+  * {
+    cursor: none !important;
+  }
+
+  #emojiCursor {
+    position: fixed;
+    top: 0;
+    left: 0;
+    font-size: 28px;
+    pointer-events: none;
+    z-index: 9999;
+    transform: translate(-50%, -50%);
+    transition: transform 0.08s ease;
+  }
+</style>
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
@@ -11,6 +30,7 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-tilt/1.7.2/vanilla-tilt.min.js"></script>
 </head>
 <body  class="night">
+<div id="emojiCursor">👻</div>
 
   <!-- Toggle Controls -->
   <div class="toggle-bar">
@@ -18,10 +38,25 @@
   </div>
 
   <!-- Video Background -->
-  <video autoplay muted loop id="bg-video">
-    <source src="assets/background1.mp4" type="video/mp4" />
-    Your browser does not support HTML5 video.
-  </video>
+  <video autoplay muted loop playsinline id="bg-video">
+  <source src="assets/background1.mp4" type="video/mp4" />
+  Your browser does not support HTML5 video.
+</video>
+
+
+<!-- 🔗 Navigation Bar -->
+<nav class="navbar">
+  <div class="logo">👻 Ghost Portfolio</div>
+  <div class="menu-toggle" id="menu-toggle">&#9776;</div>
+  <ul class="nav-links" id="nav-links">
+    <li><a href="#hero">Home</a></li>
+    <li><a href="#about">About</a></li>
+    <li><a href="#tech">Tech Stack</a></li>
+    <li><a href="#projects">Projects</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</nav>
+
 
   <!-- Hero Section -->
   <section class="hero">
@@ -84,40 +119,41 @@
       <h3>AI Tools (Runway, Sora)</h3>
     </div>
     <div class="tech-item">
-      <span class="tech-icon">⚡</span>
-      <h3>Three.js</h3>
-    </div>
-    <div class="tech-item">
       <span class="tech-icon">🔧</span>
       <h3>Photoshop / Figma</h3>
     </div>
   </div>
 </section>
 
-<section id="contact" class="section contact">
-  <h2>📬 Get In Touch</h2>
-  <form id="contactForm">
-  <input type="text" name="name" placeholder="Your Name" required />
-  <input type="email" name="email" placeholder="Your Email" required />
-  <textarea name="message" placeholder="Your Message" required></textarea>
-  <button type="submit" id="submitBtn">
-    <span id="btnText">Send</span>
-    <span id="btnSpinner" class="spinner" style="display:none;"></span>
-  </button>
-  <p id="statusMessage"></p>
-</form>
-  <p class="socials">
-    Or reach out on
-    <a href="https://wa.me/9896900679" target="_blank">WhatsApp</a> |
-    <a href="mailto:ghoststudiosdeveloper@gmail.com">Email</a>
-  </p>
+<section id="contact" class="section contact-section">
+  <h2>Contact</h2>
+  <p>Let’s connect on your favorite platform 👻</p>
+
+  <div class="contact-buttons">
+    <a href="ghoststudiosdeveloper@gmail.com" target="_blank" class="contact-btn email">
+      <img src="https://img.icons8.com/ios-filled/50/ffffff/new-post.png" alt="Email Icon" />
+      <span>Email</span>
+    </a>
+    <a href="https://wa.me/9896900679" target="_blank" class="contact-btn whatsapp">
+      <img src="https://img.icons8.com/ios-filled/50/ffffff/whatsapp.png" alt="WhatsApp Icon" />
+      <span>WhatsApp</span>
+    </a>
+    <a href="https://instagram.com/
+ghoststudio_dev" target="_blank" class="contact-btn instagram">
+      <img src="https://img.icons8.com/ios-filled/50/ffffff/instagram-new.png" alt="Instagram Icon" />
+      <span>Instagram</span>
+    </a>
+  </div>
 </section>
+<script>
+  const emojiCursor = document.getElementById("emojiCursor");
 
+  document.addEventListener("mousemove", (e) => {
+    emojiCursor.style.left = e.clientX + "px";
+    emojiCursor.style.top = e.clientY + "px";
+  });
+</script>
 
-
-  <!-- Custom Cursor -->
-  <div id="customCursor"></div>
-
-  <script src="script.js"></script>
+<script src="script.js"></script>
 </body>
 </html>
