@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Ghost Studios | Portfolio</title>
+  <link rel="stylesheet" href="style.css" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+  <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-tilt/1.7.2/vanilla-tilt.min.js"></script>
+</head>
+<body  class="night">
+
+  <!-- Toggle Controls -->
+  <div class="toggle-bar">
+    <button id="soundToggle">🔇</button>
+  </div>
+
+  <!-- Video Background -->
+  <video autoplay muted loop id="bg-video">
+    <source src="assets/background1.mp4" type="video/mp4" />
+    Your browser does not support HTML5 video.
+  </video>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="content">
+      <h1>👻 GHOST STUDIOS 🏴‍☠️</h1>
+      <p>We Make Imagination to Real</p>
+      <a href="#about" class="cta">Explore</a>
+    </div>
+    <div id="ghostAnim" class="ghost-lottie"></div>
+  </section>
+
+  <section id="about" class="section about">
+  <div class="container">
+    <h2>🦴 About Ghost Studios 🏝️</h2>
+    <p>
+      At Ghost Studios, we blend eerie aesthetics and creative freedom to craft spine-tingling, visually immersive games. Whether you're lost in a haunted island or battling pixelated pirates, our mission is simple: 
+      <strong>"Make Imagination to Real."</strong>
+    </p>
+  </div>
+</section>
+<section id="projects" class="section projects">
+  <h2>🧩 Featured Projects</h2>
+  <div class="project-grid">
+    <div class="project-card" onclick="window.open('https://yourportfolio.com')">
+      <h3>👻 Main Portfolio</h3>
+      <p>Ghost-themed 3D portfolio with animated background & toggle modes.</p>
+    </div>
+    <div class="project-card" onclick="window.open('https://ghoststudioss.itch.io/ghostseas')">
+      <h3>🏴‍☠️ Ghost Seas</h3>
+      <p>Pirate-themed 2.5D game with spooky sound and visuals.</p>
+    </div>
+    <div class="project-card" onclick="window.open('https://ghoststudioss.itch.io/shooting2d')">
+      <h3>🎯 Ghost Strike 2D</h3>
+      <p>Classic 2D shooter with custom UI and sound FX.</p>
+    </div>
+    <div class="project-card" onclick="window.open('https://yourjournalsite.com')">
+      <h3>📓 Studio Journal</h3>
+      <p>Personal dev log + project breakdown in a scroll-based layout.</p>
+    </div>
+  </div>
+</section>
+
+<section id="tech" class="section tech">
+  <h2>🛠️ Tech & Tools</h2>
+  <div class="tech-grid">
+    <div class="tech-item">
+      <span class="tech-icon">⚙️</span>
+      <h3>Unity</h3>
+    </div>
+    <div class="tech-item">
+      <span class="tech-icon">🌐</span>
+      <h3>HTML & CSS</h3>
+    </div>
+    <div class="tech-item">
+      <span class="tech-icon">🎮</span>
+      <h3>C# / JavaScript</h3>
+    </div>
+    <div class="tech-item">
+      <span class="tech-icon">🧠</span>
+      <h3>AI Tools (Runway, Sora)</h3>
+    </div>
+    <div class="tech-item">
+      <span class="tech-icon">⚡</span>
+      <h3>Three.js</h3>
+    </div>
+    <div class="tech-item">
+      <span class="tech-icon">🔧</span>
+      <h3>Photoshop / Figma</h3>
+    </div>
+  </div>
+</section>
+
+<section id="contact" class="section contact">
+  <h2>📬 Get In Touch</h2>
+  <form id="contactForm">
+  <input type="text" name="name" placeholder="Your Name" required />
+  <input type="email" name="email" placeholder="Your Email" required />
+  <textarea name="message" placeholder="Your Message" required></textarea>
+  <button type="submit" id="submitBtn">
+    <span id="btnText">Send</span>
+    <span id="btnSpinner" class="spinner" style="display:none;"></span>
+  </button>
+  <p id="statusMessage"></p>
+</form>
+  <p class="socials">
+    Or reach out on
+    <a href="https://wa.me/9896900679" target="_blank">WhatsApp</a> |
+    <a href="mailto:ghoststudiosdeveloper@gmail.com">Email</a>
+  </p>
+</section>
+
+
+
+  <!-- Custom Cursor -->
+  <div id="customCursor"></div>
+
+  <script src="script.js"></script>
+</body>
+</html>
